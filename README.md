@@ -1,40 +1,36 @@
-# Test technique front-end - ReactJS
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-L'utilisation de ReactJS est obligatoire.  
-L'utilisation de Redux est un plus dans le cas du poste de dev Junior.
+## Getting Started
 
-__Objectif__ : Utiliser l'API Movie Database, afin de réaliser une interface utilisateur.  
-https://developers.themoviedb.org/3/getting-started/introduction
+First, run the development server:
 
-Votre rendu final devra comprendre :
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-# Si vous postulez pour le poste de dev Junior:
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-__Affichage des derniers films__:<br/>
-Un utilisateur peut voir les derniers films sur la page d'accueil.
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-__Affichage des films dans l'ordre__:<br/>
-Un utilisateur peut afficher les films par leur ordre de sortie. 
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-__Affichage d'un film sur une autre page__:<br/>
-Un utilisateur peut alors voir tout les détails d'un film(vous êtes libre d'afficher le nombre d'informations que vous voulez).
+## Learn More
 
-__Afficher les suggestions d'un film__:<br/>
-Une fois sur la page de détails, un utilisateur peut voir les suggestions alternative en rapport avec ce film.
+To learn more about Next.js, take a look at the following resources:
 
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-# Si vous postulez pour le poste de dev Senior: 
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-__Les mêmes exercices que le Junior__
+## Deploy on Vercel
 
-__Utilisation obligatoire de Redux__
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-__Creation d'une liste de film à voir__:<br/>
-Un utilisateur peut se créer une liste de film à voir. 
-
-__Ajout d'un système de rating__:<br/>
-Un utilisateur peut ajouter une note sur chaque film.
-
-Si certaines questions vous semblent ambigües, choisissez ce qui est le plus pertinent pour vous.
-
-Bon courage ! 
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
