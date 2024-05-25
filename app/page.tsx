@@ -31,7 +31,7 @@ export default function Home() {
   }, [sortMode])
 
   return (
-    <div className="container">
+    <div className="container mt-2">
       <div className="flex gap-4">
         <h1 className="text-4xl font-semibold pb-3">Movies</h1>
         <SortSelect mode={sortMode} onChange={setSortMode} />

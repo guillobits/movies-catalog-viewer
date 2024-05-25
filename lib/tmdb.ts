@@ -12,6 +12,7 @@ const TMDB_HEADERS = {
 
 export interface Movie {
   id: number
+  title: string
   original_title: string
   release_date: string
   overview: string
