@@ -32,4 +32,4 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 ## Access to the deployed application
 
 The application has been released to Vercel.
-You can access it [here](https://movies-catalog-viewer.vercel.app/)
+You can access it [here](https://movie--list.vercel.app/)
