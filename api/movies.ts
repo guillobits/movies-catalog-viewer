@@ -1,6 +1,7 @@
 "use server";
 
 import { SortMode } from "@/app/sort-select";
+import { Movie } from "@/lib/types/movie";
 
 const TMDB_API_URI = "https://api.themoviedb.org/3";
 const TMDB_HEADERS = {
@@ -9,16 +10,6 @@ const TMDB_HEADERS = {
     Authorization: `Bearer ${process.env.TMDB_API_KEY}`,
   },
 };
-
-export interface Movie {
-  id: number
-  title: string
-  original_title: string
-  release_date: string
-  overview: string
-  poster_path: string
-  backdrop_path: string
-}
 
 export interface MoviesFetchResponse {
   results: Movie[];

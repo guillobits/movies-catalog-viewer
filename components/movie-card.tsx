@@ -1,10 +1,10 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-import { Movie } from "@/lib/tmdb";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import { ImageOff, Rocket } from "lucide-react";
+import { Movie } from "@/lib/types/movie";
 
 export type MovieCardProps = {
   movie: Movie;

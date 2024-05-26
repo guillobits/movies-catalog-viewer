@@ -2,16 +2,21 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { MovieCard } from "@/components/movie-card";
-import { Movie, fetchMovies } from "@/lib/tmdb";
 import { SortMode, SortSelect } from "./sort-select";
 import { Button } from "@/components/ui/button";
+import { fetchMovies } from "@/api/movies";
+import { useAppDispatch, useAppSelector } from "@/lib/hooks";
+import { appendList, incrementPage, resetPage, setError, updateList } from "@/lib/features/movies/movies.slice";
+import { RootState } from "@/lib/store";
 
 export default function Home() {
-  const [error, setError] = useState<string | null>(null);
-  const [movies, setMovies] = useState<Movie[]>([]);
-  const [nextPage, setNextPage] = useState<number>(1);
-  const [sortMode, setSortMode] = useState<SortMode>("release_date_desc");
-  const [loading, setLoading] = useState(false);
+  const movies = useAppSelector((state : RootState) => state.movies.movies)
+  const sortMode = useAppSelector((state : RootState) => state.movies.sortMode)
+  const error = useAppSelector((state : RootState) => state.movies.error)
+  const nextPage = useAppSelector((state : RootState) => state.movies.nextPage)
+
+  const [loading, setLoading] = useState<boolean>(true)
+  const dispatch = useAppDispatch()
 
   const fetchNextSortedMovies = useCallback(
     async (shouldReset = false) => {
@@ -20,21 +25,22 @@ export default function Home() {
       fetchMovies(sortMode, pageToFetch)
       .then((nextMovies) => {
         if (shouldReset) {
-          setMovies(nextMovies);
-          setNextPage(2);
+          dispatch(resetPage())
+          dispatch(updateList(nextMovies));
+          dispatch(incrementPage())
         } else {
-          setMovies((prevMovies) => [...prevMovies, ...nextMovies]);
-          setNextPage((prevPage) => prevPage + 1);
+          dispatch(appendList(nextMovies));
+          dispatch(incrementPage())
         }
       })
       .catch((error) => {
-        setError(error);
+        dispatch(setError(error))
       })
       .finally(() => {
         setLoading(false);
       });
     },
-    [sortMode, nextPage]
+    [nextPage, sortMode, dispatch]
   );
 
   useEffect(() => {
@@ -50,7 +56,7 @@ export default function Home() {
     <div className="container mt-2">
       <div className="flex gap-4">
         <h1 className="text-4xl font-semibold pb-3">Movies</h1>
-        <SortSelect mode={sortMode} onChange={setSortMode} />
+        <SortSelect />
       </div>
       {error ? (
         <p>{error}</p>

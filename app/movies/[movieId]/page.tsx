@@ -2,9 +2,9 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-import { Movie, fetchMovie, fetchMovieRecommandations } from "@/lib/tmdb";
-import { Badge } from "@/components/ui/badge";
 import { MovieCard } from "@/components/movie-card";
+import { fetchMovie, fetchMovieRecommandations } from "@/api/movies";
+import { Movie } from "@/lib/types/movie";
 
 export default function MovieDetails({
   params,
