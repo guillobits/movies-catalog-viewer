@@ -28,15 +28,17 @@ export interface MoviesFetchResponse {
  * Fetch the movies from TMDB
  * 
  * @param sort The sort mode to use
+ * @param page The current page - start at 1
  * @returns Movie[] - A list of movie
  */
-export const fetchMovies = async (sort: SortMode) => {
+export const fetchMovies = async (sort: SortMode, page: number) => {
   const now = new Date();
   const formatDate = (date: Date) => date.toISOString().split('T')[0];
 
   // Filter the movies already released (by release_date < now)
   let endpoint = "/discover/movie"
   endpoint += `?primary_release_date.lte=${formatDate(now)}`
+  endpoint += `&page=${page}`
   endpoint += `&sort_by=primary_release_date.`
 
   // Apply Sorting mode
