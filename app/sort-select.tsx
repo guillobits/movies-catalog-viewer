@@ -12,8 +12,8 @@ import { updateSortMode } from "@/lib/features/movies/movies.slice"
 export type SortMode = "release_date_desc" | "release_date_asc"
 
 const SORT_MODE_TEXTS = {
-  release_date_desc: 'Most Recent',
-  release_date_asc: 'Oldest'
+  release_date_desc: "Most Recent",
+  release_date_asc: "Oldest",
 }
 
 export const SortSelect = () => {
@@ -26,16 +26,22 @@ export const SortSelect = () => {
         <Button variant="outline">
           {SORT_MODE_TEXTS[sortMode]}
           <ChevronDown />
-          </Button>
+        </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem className="flex gap-2" onClick={() => dispatch(updateSortMode("release_date_desc"))}>
+        <DropdownMenuItem
+          className="flex gap-2"
+          onClick={() => dispatch(updateSortMode("release_date_desc"))}
+        >
           {SORT_MODE_TEXTS["release_date_desc"]}
         </DropdownMenuItem>
-        <DropdownMenuItem className="flex gap-2" onClick={() => dispatch(updateSortMode("release_date_asc"))}>
+        <DropdownMenuItem
+          className="flex gap-2"
+          onClick={() => dispatch(updateSortMode("release_date_asc"))}
+        >
           {SORT_MODE_TEXTS["release_date_asc"]}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
-  );
-};
+  )
+}

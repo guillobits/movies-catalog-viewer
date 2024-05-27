@@ -1,66 +1,62 @@
-"use client";
-import { useEffect, useState } from "react";
-import Image from "next/image";
+"use client"
+import { useEffect, useState } from "react"
+import Image from "next/image"
 
-import { MovieCard } from "@/components/movie-card";
-import { fetchMovie, fetchMovieRecommandations } from "@/api/movies";
-import { Movie } from "@/lib/types/movie";
+import { MovieCard } from "@/components/movie-card"
+import { fetchMovie, fetchMovieRecommandations } from "@/api/movies"
+import { Movie } from "@/lib/types/movie"
 
-export default function MovieDetails({
-  params,
-}: {
-  params: { movieId: string };
-}) {
-  const [movie, setMovie] = useState<Movie | null>(null);
-  const [movieRecommentations, setMovieRecommentations] = useState<Movie[]>([]);
-  const [error, setError] = useState<string | null>(null);
+export default function MovieDetails({ params }: { params: { movieId: string } }) {
+  const [movie, setMovie] = useState<Movie | null>(null)
+  const [movieRecommentations, setMovieRecommentations] = useState<Movie[]>([])
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    const movieId = parseInt(params.movieId);
+    const movieId = parseInt(params.movieId)
     fetchMovie(movieId)
       .then((movie) => {
-        setMovie(movie);
+        setMovie(movie)
         fetchMovieRecommandations(movieId).then((recommandations) =>
-          setMovieRecommentations(recommandations)
-        );
+          setMovieRecommentations(recommandations),
+        )
       })
       .catch(() => {
-        setError("Error while fetching the movie details");
-      });
+        setError("Error while fetching the movie details")
+      })
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [])
 
   return (
     <>
+      {error ? <p>{error}</p> : null}
       {movie ? (
         <div className="flex flex-col gap-5">
           {/* Hero */}
-          <div className="relative flex w-full h-screen md:h-[600px]">
+          <div className="relative flex h-screen w-full md:h-[600px]">
             {/* Hero Image Background */}
             {movie.backdrop_path ? (
               <>
                 <Image
-                  className="object-cover w-full h-full"
+                  className="h-full w-full object-cover"
                   src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
                   alt={movie.title}
                   width={1920}
                   height={800}
+                  priority={true}
                 />
                 {/* Hero Overlay */}
-                <div className="bg-gradient-to-r from-slate-900/70 via-50% via-slate-900/70 to-80% w-full h-full absolute top-0 left-0 right-0 bottom-0" />
+                <div className="absolute bottom-0 left-0 right-0 top-0 h-full w-full bg-gradient-to-r from-slate-900/70 via-slate-900/70 via-50% to-80%" />
               </>
             ) : (
-              <div className="bg-slate-900/70 absolute top-0 left-0 right-0 bottom-0" />
+              <div className="absolute bottom-0 left-0 right-0 top-0 bg-slate-900/70" />
             )}
 
             {/* Hero Content */}
-            <div className="absolute top-0 bottom-0 left-0 w-full">
+            <div className="absolute bottom-0 left-0 top-0 w-full">
               <div className="container h-full">
-                <div className="flex flex-col gap-3 lg:w-1/2 h-full justify-center text-white">
+                <div className="flex h-full flex-col justify-center gap-3 text-white lg:w-1/2">
                   <h1 className="text-4xl italic">{movie.title}</h1>
-                  {movie.release_date ? (
-                    <span>Released on {movie.release_date}</span>
-                  ) : null}
+                  {movie.release_date ? <span>Released on {movie.release_date}</span> : null}
                   {movie.overview ? (
                     <>
                       <h2 className="text-xl font-semibold">Synopsis</h2>
@@ -73,14 +69,11 @@ export default function MovieDetails({
           </div>
 
           <div className="container">
-            <h2 className="text-3xl mb-3">Recommendations</h2>
+            <h2 className="mb-3 text-3xl">Recommendations</h2>
             {movieRecommentations.length > 0 ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-4">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4">
                 {movieRecommentations.map((movieRecommended) => (
-                  <MovieCard
-                    key={movieRecommended.id}
-                    movie={movieRecommended}
-                  />
+                  <MovieCard key={movieRecommended.id} movie={movieRecommended} />
                 ))}
               </div>
             ) : (
@@ -90,5 +83,5 @@ export default function MovieDetails({
         </div>
       ) : null}
     </>
-  );
+  )
 }

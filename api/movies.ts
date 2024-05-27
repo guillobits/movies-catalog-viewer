@@ -1,30 +1,30 @@
-"use server";
+"use server"
 
-import { SortMode } from "@/app/sort-select";
-import { Movie } from "@/lib/types/movie";
+import { SortMode } from "@/app/sort-select"
+import { Movie } from "@/lib/types/movie"
 
-const TMDB_API_URI = "https://api.themoviedb.org/3";
+const TMDB_API_URI = "https://api.themoviedb.org/3"
 const TMDB_HEADERS = {
   headers: {
     accept: "application/json",
     Authorization: `Bearer ${process.env.TMDB_API_KEY}`,
   },
-};
+}
 
 export interface MoviesFetchResponse {
-  results: Movie[];
+  results: Movie[]
 }
 
 /**
  * Fetch the movies from TMDB
- * 
+ *
  * @param sort The sort mode to use
  * @param page The current page - start at 1
  * @returns Movie[] - A list of movie
  */
 export const fetchMovies = async (sort: SortMode, page: number) => {
-  const now = new Date();
-  const formatDate = (date: Date) => date.toISOString().split('T')[0];
+  const now = new Date()
+  const formatDate = (date: Date) => date.toISOString().split("T")[0]
 
   // Filter the movies already released (by release_date < now)
   let endpoint = "/discover/movie"
@@ -33,16 +33,16 @@ export const fetchMovies = async (sort: SortMode, page: number) => {
   endpoint += `&sort_by=primary_release_date.`
 
   // Apply Sorting mode
-  endpoint += (sort === 'release_date_asc') ? 'asc' : 'desc'
+  endpoint += sort === "release_date_asc" ? "asc" : "desc"
 
-  const data = await fetch(`${TMDB_API_URI}${endpoint}`, TMDB_HEADERS);
+  const data = await fetch(`${TMDB_API_URI}${endpoint}`, TMDB_HEADERS)
   if (!data.ok) {
-    throw new Error(`Failed to fetch the last released movies`);
+    throw new Error(`Failed to fetch the last released movies`)
   }
 
-  const response: MoviesFetchResponse = await data.json();
-  return response.results;
-};
+  const response: MoviesFetchResponse = await data.json()
+  return response.results
+}
 
 /**
  * Fetch a specified movie from TMDB
@@ -55,13 +55,13 @@ export const fetchMovie = async (id: number) => {
       accept: "application/json",
       Authorization: `Bearer ${process.env.TMDB_API_KEY}`,
     },
-  });
+  })
 
   if (!data.ok) {
-    throw new Error(`Failed to fetch the movie with id=${id}`);
+    throw new Error(`Failed to fetch the movie with id=${id}`)
   }
-  return (await data.json()) as Movie;
-};
+  return (await data.json()) as Movie
+}
 
 /**
  * Fetch the movies recommendation for a specified movie
@@ -69,14 +69,11 @@ export const fetchMovie = async (id: number) => {
  * @returns Movie[] - The movies related to the movie specified
  */
 export const fetchMovieRecommandations = async (id: number) => {
-  const data = await fetch(
-    `${TMDB_API_URI}/movie/${id}/recommendations`,
-    TMDB_HEADERS
-  );
+  const data = await fetch(`${TMDB_API_URI}/movie/${id}/recommendations`, TMDB_HEADERS)
   if (!data.ok) {
-    throw new Error(`Failed to fetch movie recommandations`);
+    throw new Error(`Failed to fetch movie recommandations`)
   }
 
-  const response: MoviesFetchResponse = await data.json();
-  return response.results;
-};
+  const response: MoviesFetchResponse = await data.json()
+  return response.results
+}

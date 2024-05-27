@@ -1,14 +1,12 @@
-import { Frown } from "lucide-react";
-import Link from "next/link";
+import { Frown } from "lucide-react"
+import Link from "next/link"
 
 export default function NotFound() {
   return (
-    <div className="flex flex-col items-center justify-center h-screen gap-6">
+    <div className="flex h-screen flex-col items-center justify-center gap-6">
       <Frown size={50} />
       <div className="space-y-2 text-center">
-        <h2 className="text-3xl font-bold tracking-tight">
-          We are so sorry...
-        </h2>
+        <h2 className="text-3xl font-bold tracking-tight">We are so sorry...</h2>
         <p className="text-gray-500 dark:text-gray-400">
           {`The page you're looking for doesn't exist or has been moved.`}
         </p>
@@ -20,5 +18,5 @@ export default function NotFound() {
         Go back home
       </Link>
     </div>
-  );
+  )
 }

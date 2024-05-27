@@ -1,29 +1,28 @@
-"use client";
-import Link from "next/link";
+"use client"
+import Link from "next/link"
 import {
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
   navigationMenuTriggerStyle,
-} from "./ui/navigation-menu";
-import { ThemeSwitcher } from "./theme-switcher";
+} from "./ui/navigation-menu"
+import { ThemeSwitcher } from "./theme-switcher"
 
 const menuItems = [
   {
     title: "Movies",
     href: "/",
   },
-];
+]
 
 export const TopBar = () => (
-  <NavigationMenu className="justify-between p-3 sticky top-0 bg-background">
+  <NavigationMenu className="sticky top-0 justify-between bg-background p-3">
     {/* Left */}
     <NavigationMenuList>
-      
       {/* Logo */}
       <NavigationMenuItem className="px-1">
-        <Link href="/" className="font-semibold text-xl">
+        <Link href="/" className="text-xl font-semibold">
           Movie//List
         </Link>
       </NavigationMenuItem>
@@ -38,7 +37,6 @@ export const TopBar = () => (
           </Link>
         </NavigationMenuItem>
       ))}
-
     </NavigationMenuList>
 
     {/* Right */}
@@ -47,6 +45,5 @@ export const TopBar = () => (
         <ThemeSwitcher />
       </NavigationMenuItem>
     </NavigationMenuList>
-    
   </NavigationMenu>
-);
+)
