@@ -13,21 +13,21 @@ Cette application est développée pour répondre aux exigences du test techniqu
 - Next.js 14.2.3: J'ai choisi Next.js pour plusieurs raisons. Next.js offre des fonctionnalités avancées telles que le rendu côté serveur (SSR), la génération de pages statiques (SSG) et une configuration simplifiée pour la gestion des routes avec le nouvel App Router. Ces fonctionnalités permettent de créer une application performante et évolutive. Elle m'a également permis d'utiliser la même stack que celle utilisée par Entourage.
 
 ### State Management
-Redux: J'ai opté pour redux pour utiliser le même state manager qu'utilisé par Entourage. Au vu de la petite taille du projet, j'aurais également pu opter pour la contexte API native de React.js
+- Redux: J'ai opté pour redux pour utiliser le même state manager qu'utilisé par Entourage. Au vu de la petite taille du projet, j'aurais également pu opter pour la contexte API native de React.js
 
 ### Autres technologies
-TypeScript: Pour des raisons de robustesse et de maintenabilité du code.
-Shadcn: Pour avoir une base de composant
-Fetch API: Pour les requêtes HTTP vers l'API Movie Database sans ajouter de sur-couche est utilisé la librairie native.
+- TypeScript: Pour des raisons de robustesse et de maintenabilité du code.
+- TailWindCSS et Shadcn: Pour avoir une base de composant
+- Fetch API: Pour les requêtes HTTP vers l'API Movie Database sans ajouter de sur-couche est utilisé la librairie native.
 
 ## Temps passé
 En dehors de la lecture du sujet, des recherches effectués, d'aller-retour pour essayer des choses différentes, je pense avoir passé une bonne journée de travail dessus.
 
 ## Fonctionnalités
-Affichage des derniers films: L'utilisateur peut voir les derniers films sur la page d'accueil.
-Affichage des films dans l'ordre: L'utilisateur peut trier les films par leur ordre de sortie.
-Affichage des détails d'un film: L'utilisateur peut voir les détails d'un film sur une page dédiée.
-Suggestions de films: L'utilisateur peut voir les suggestions alternatives en rapport avec un film sur la page de détails.
+- Affichage des derniers films: L'utilisateur peut voir les derniers films sur la page d'accueil.
+- Affichage des films dans l'ordre: L'utilisateur peut trier les films par leur ordre de sortie.
+- Affichage des détails d'un film: L'utilisateur peut voir les détails d'un film sur une page dédiée.
+- Suggestions de films: L'utilisateur peut voir les suggestions alternatives en rapport avec un film sur la page de détails.
 
 ### Fonctionnalités "Bonus" (pas clairement demandées dans les consignes)
 
@@ -85,5 +85,5 @@ Ce projet démontre l'utilisation de Next.js avec React pour créer une applicat
 
 ## Visualiser le projet
 
-Ouvrez votre navigateur et allez sur https://movie--list.vercel.app/
+> Ouvrez votre navigateur et allez sur https://movie--list.vercel.app/
 
