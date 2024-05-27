@@ -34,7 +34,7 @@ const MovieCardImage = ({ movie, priorizeRender } : MovieCardImageProps) => (
 export type MovieCardProps = {
   movie: Movie
   className?: string
-  priorizeRender: boolean
+  priorizeRender?: boolean
 }
 
 export const MovieCard = ({ movie, className, priorizeRender = false } : MovieCardProps) => {
