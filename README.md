@@ -21,7 +21,7 @@ Cette application est développée pour répondre aux exigences du test techniqu
 - Fetch API: Pour les requêtes HTTP vers l'API Movie Database sans ajouter de sur-couche est utilisé la librairie native.
 
 ## Temps passé
-En dehors de la lecture du sujet, des recherches effectués, d'aller-retour pour essayer des choses différentes, je pense avoir passé une bonne journée de travail dessus.
+En dehors de la lecture du sujet, des recherches effectuées, d'aller-retour pour essayer des choses différentes, je pense avoir passé une bonne journée de travail dessus.
 
 ## Fonctionnalités
 - Affichage des derniers films: L'utilisateur peut voir les derniers films sur la page d'accueil.
@@ -38,9 +38,10 @@ En dehors de la lecture du sujet, des recherches effectués, d'aller-retour pour
 
 ### Idées d'évolution du projet
 - Les fonctionnalités de liste perso / rating proposés par l'énoncé du test
-- Implémenter une recherche par nom et plus d'autres filtres
-- Proposer plus de type de tri dans la page d'accueil
+- Implémenter une recherche par nom et d'autres filtres
+- Proposer plus de types de tri dans la page d'accueil
 - Afficher les séries TV et ajouter une section spécifique
+- Plus de tests
 - etc...
 
 # Installation et lancement de l'application
