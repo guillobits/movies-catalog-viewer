@@ -23,7 +23,7 @@ export const SortSelect = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline">
+        <Button variant="outline" data-test-id="SortSelect">
           {SORT_MODE_TEXTS[sortMode]}
           <ChevronDown />
         </Button>

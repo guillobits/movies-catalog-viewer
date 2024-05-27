@@ -45,7 +45,8 @@ export default function Home() {
               <MovieCard key={movie.id} movie={movie} priorizeRender={idx < 3} />
             ))}
           </div>
-          <Button variant="outline" onClick={handleLoadMore} disabled={status === "loading"}>
+          <Button 
+            data-test-id="SeeMoreButton" variant="outline" onClick={handleLoadMore} disabled={status === "loading"}>
             See more
           </Button>
         </div>

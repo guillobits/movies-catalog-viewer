@@ -21,6 +21,7 @@ export const MovieCard = ({ movie, className, priorizeRender = false }: MovieCar
 
   return (
     <div
+      data-test-id="MovieCard"
       onClick={openMovieDetails}
       className={cn(
         "relative flex min-h-80 cursor-pointer flex-col-reverse justify-between overflow-hidden rounded-lg border-2 border-border bg-card text-card-foreground shadow-sm",
@@ -29,7 +30,7 @@ export const MovieCard = ({ movie, className, priorizeRender = false }: MovieCar
     >
       <div className="flex flex-col gap-2 px-3 py-5 text-card-foreground">
         <h3 className="text-xl font-semibold">{movie.title}</h3>
-        <Badge className="flex w-max gap-2">
+        <Badge data-test-id="ReleaseDateBadge" className="flex w-max gap-2">
           <Rocket size={12} />
           {movie.release_date}
         </Badge>
