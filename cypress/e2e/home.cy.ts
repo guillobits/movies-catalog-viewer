@@ -16,7 +16,7 @@ describe('The home page', () => {
     cy.get('[data-test-id=MovieCard]').should('have.length.greaterThan', 20)
   })
 
-  it('should contains a sort select', () => {
+  it('should contains a sort select with most recent by default', () => {
     cy.get('[data-test-id=SortSelect]').contains('Most Recent')
   })
 })

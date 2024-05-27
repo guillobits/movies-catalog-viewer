@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useEffect } from "react"
 import { MovieCard } from "@/components/movie-card"
 import { SortSelect } from "./sort-select"
 import { Button } from "@/components/ui/button"
@@ -18,13 +18,11 @@ export default function Home() {
     if (status === "idle") {
       dispatch(fetchNextMovies(true))
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [dispatch, status])
 
   useEffect(() => {
     dispatch(fetchNextMovies(true))
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [sortMode])
+  }, [dispatch, sortMode])
 
   const handleLoadMore = () => {
     dispatch(fetchNextMovies(false))
@@ -45,7 +43,7 @@ export default function Home() {
               <MovieCard key={movie.id} movie={movie} priorizeRender={idx < 3} />
             ))}
           </div>
-          <Button 
+          <Button
             data-test-id="SeeMoreButton" variant="outline" onClick={handleLoadMore} disabled={status === "loading"}>
             See more
           </Button>

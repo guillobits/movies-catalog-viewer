@@ -10,18 +10,18 @@ Cette application est développée pour répondre aux exigences du test techniqu
 ## Choix techniques
 
 ### Framework
-- Next.js 14.2.3: J'ai choisi Next.js pour plusieurs raisons. Next.js offre des fonctionnalités avancées telles que le rendu côté serveur (SSR), la génération de pages statiques (SSG) et une configuration simplifiée pour la gestion des routes avec le nouvel App Router. Ces fonctionnalités permettent de créer une application performante et évolutive. Elle m'a également permis d'utiliser la même stack que celle utilisée par Entourage.
+- Next.js 14.2.3: J'ai choisi Next.js pour plusieurs raisons. Next.js offre des fonctionnalités avancées telles que le rendu côté serveur (SSR), la génération de pages statiques (SSG) et une configuration simplifiée pour la gestion des routes avec le nouvel App Router. Ces fonctionnalités permettent de créer une application performante et évolutive. Elle m'a également permis d'utiliser la même stack que celle utilisée par Entourage. De plus cela m'a permis de découvrir les serveurs components notamment.
 
 ### State Management
 - Redux: J'ai opté pour redux pour utiliser le même state manager qu'utilisé par Entourage. Au vu de la petite taille du projet, j'aurais également pu opter pour la contexte API native de React.js
 
 ### Autres technologies
 - TypeScript: Pour des raisons de robustesse et de maintenabilité du code.
-- TailWindCSS et Shadcn: Pour avoir une base de composant
+- TailWindCSS et Shadcn: Pour avoir une base de composant facile à implémenter, adaptable.
 - Fetch API: Pour les requêtes HTTP vers l'API Movie Database sans ajouter de sur-couche est utilisé la librairie native.
 
 ## Temps passé
-En dehors de la lecture du sujet, des recherches effectuées, d'aller-retour pour essayer des choses différentes, je pense avoir passé une bonne journée de travail dessus.
+En dehors de la lecture du sujet, des recherches effectuées sur les spécificités de Next JS 14, d'aller-retour pour essayer des choses différentes, je pense avoir passé une bonne journée de travail sur le sujet.
 
 ## Fonctionnalités
 - Affichage des derniers films: L'utilisateur peut voir les derniers films sur la page d'accueil.
@@ -41,8 +41,7 @@ En dehors de la lecture du sujet, des recherches effectuées, d'aller-retour pou
 - Implémenter une recherche par nom et d'autres filtres
 - Proposer plus de types de tri dans la page d'accueil
 - Afficher les séries TV et ajouter une section spécifique
-- Plus de tests
-- etc...
+- Plus de tests et mocker l'api TMDB
 
 # Installation et lancement de l'application
 
@@ -68,7 +67,7 @@ npm install
 3. Configurer les variables d'environnement:
 Créez un fichier .env.local à la racine du projet et ajoutez votre clé API de TMDB:
 ```
-TMDB_API_KEY==YOUR_API_KEY_HERE
+TMDB_API_KEY=YOUR_API_KEY_HERE
 ```
 
 4. Lancer l'application en mode développement:
@@ -82,7 +81,8 @@ npm run dev
 Ouvrez votre navigateur et allez sur http://localhost:3000.
 
 # Conclusion
-Ce projet démontre l'utilisation de Next.js avec React pour créer une application web performante et moderne. Le choix d'utiliser le Context API pour la gestion de l'état a été fait pour sa simplicité et son efficacité dans ce contexte spécifique.
+J'ai vraiment apprécié travailler sur ce projet qui au delà du test technique, m'a permit de ré-appréhender React.js en pronfondeur via next.js 14.
+Je n'ai pas ressenti de blocage particulier lors de sa réalisation. Ne sachant pas précisément à quel degré pousser les fonctionnalités, j'ai proposé des éléments "bonus" (load more, déploiement d'une "prod" et des tests).
 
 ## Visualiser le projet
 

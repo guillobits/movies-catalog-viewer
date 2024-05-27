@@ -6,13 +6,38 @@ import { cn } from "@/lib/utils"
 import { ImageOff, Rocket } from "lucide-react"
 import { Movie } from "@/lib/types/movie"
 
+export type MovieCardImageProps = {
+  movie: Movie
+  priorizeRender: boolean
+}
+
+const MovieCardImage = ({ movie, priorizeRender } : MovieCardImageProps) => (
+  <>
+   {movie.poster_path ? (
+      <Image
+        className="h-full w-full object-cover"
+        src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
+        alt={movie.title}
+        width={400}
+        height={100}
+        priority={priorizeRender}
+      />
+    ) : (
+      <div className="flex h-full w-full items-center justify-center text-secondary-foreground">
+        <ImageOff />
+      </div>
+    )}
+  </>
+)
+
+
 export type MovieCardProps = {
   movie: Movie
   className?: string
-  priorizeRender?: boolean
+  priorizeRender: boolean
 }
 
-export const MovieCard = ({ movie, className, priorizeRender = false }: MovieCardProps) => {
+export const MovieCard = ({ movie, className, priorizeRender = false } : MovieCardProps) => {
   const router = useRouter()
 
   const openMovieDetails = () => {
@@ -36,20 +61,7 @@ export const MovieCard = ({ movie, className, priorizeRender = false }: MovieCar
         </Badge>
       </div>
       <div className="flex-auto bg-secondary">
-        {movie.poster_path ? (
-          <Image
-            className="h-full w-full object-cover"
-            src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
-            alt={movie.title}
-            width={400}
-            height={100}
-            priority={priorizeRender}
-          />
-        ) : (
-          <div className="flex h-full w-full items-center justify-center text-secondary-foreground">
-            <ImageOff />
-          </div>
-        )}
+        <MovieCardImage movie={movie} priorizeRender={priorizeRender} />
       </div>
     </div>
   )

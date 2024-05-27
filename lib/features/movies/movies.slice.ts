@@ -37,12 +37,6 @@ const moviesSlice = createSlice({
     resetPage: (state) => {
       state.nextPage = 1
     },
-    resetError: (state) => {
-      state.error = null
-    },
-    setError: (state, action: PayloadAction<string>) => {
-      state.error = action.payload
-    },
   },
   extraReducers: (builder) => {
     builder
@@ -68,6 +62,6 @@ const moviesSlice = createSlice({
   },
 })
 
-export const { appendList, updateList, updateSortMode, resetPage, resetError, setError } =
+export const { appendList, updateList, updateSortMode, resetPage } =
   moviesSlice.actions
 export default moviesSlice.reducer

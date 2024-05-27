@@ -16,15 +16,16 @@ export default function MovieDetails({ params }: { params: { movieId: string } }
     fetchMovie(movieId)
       .then((movie) => {
         setMovie(movie)
-        fetchMovieRecommandations(movieId).then((recommandations) =>
-          setMovieRecommentations(recommandations),
-        )
       })
       .catch(() => {
         setError("Error while fetching the movie details")
       })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+    fetchMovieRecommandations(movieId).then((recommandations) =>
+      setMovieRecommentations(recommandations),
+    ).catch(() => {
+      setError("Error while fetching recommendations")
+    })
+  }, [params.movieId])
 
   return (
     <>
